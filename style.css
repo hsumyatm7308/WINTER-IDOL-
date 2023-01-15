@@ -134,9 +134,11 @@ transform: translate(10%,40%);}
     box-shadow: 1px 1px 10px gray;
     border-radius: 10px;   
 
+    transform: scale(.8);
+
     position: absolute;
-    left: 350px;
-    top: 10px;
+    right: 30px;
+    top: 0px;
 }
 
 .googleform span{
@@ -174,7 +176,8 @@ transform: translate(10%,40%);}
 
 
 .all{
-    display: none;
+    display: block;
+
 }
 
 .navs{
@@ -184,9 +187,6 @@ transform: translate(10%,40%);}
     /* background-color: #bfd5e5; */
 }
 
-.navs li{
-    list-style: none;
-}
 
 .navs  a{
     color: #000;
@@ -198,6 +198,15 @@ transform: translate(10%,40%);}
     padding: 3px 15px;
 }
 
+.navs a:hover{
+    border-bottom: 2px solid #5183aa;
+}
+
+#allbtn{
+    background: #dfa060;
+}
+
+/* Start ALL Part */
 
 .date{
     width: 90%;
@@ -259,14 +268,16 @@ h4 i{
 }
 
 
-
+/* End All Part  */
 
 /* Start Gallery  */
 .gallery{
     width: 100%;
     margin-top: 15px;
     background-color: #000;
-
+    
+    display: none;
+    transform: scale(.9);
     position: relative;
 }
 
@@ -365,7 +376,7 @@ h4 i{
 .bigcontainer{
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
+    background: #d0e0ec;
     /* text-align: center; */
     display: none;
 
@@ -389,7 +400,9 @@ h4 i{
     width: 30px;
     height: 30px;
     color: #000;
+    font-size: 25px;
     font-weight: 700;
+    text-align: center;
     background: none;
     border-radius: 50%;
     border: none;
@@ -399,8 +412,8 @@ h4 i{
     top: 20px;
 }
 
-.bigcontainer .esc:hover{
-    background-color: #dfa060;
+.bigcontainer .esc:hover {
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
 }
 
 .bigcontainer .prevang,.bigcontainer .nextang{
@@ -422,13 +435,45 @@ h4 i{
 }
 
 .prevang:hover , .nextang:hover{
-    background: #dfa060;
+    background: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
 }
 /* End Gallery  */
 
+/* Start Audio Part  */
+.audiocontainer{
+   width: 300px;
+   height: 200px;
+   background-color: #000;
 
+   position: absolute;
+   left: 450px;
+   top:300px;
+}
 
+.audiocontainer .cd{
+    width: 300px;
+    height: 250px;
+    background-color: #5183aa;
+}
 
+.cd .cicle{
+    width: 200px;
+    height: 200px;
+    background-color: #000;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cicle .smallcicle{
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+/* End Audio Part  */
 
 
 
