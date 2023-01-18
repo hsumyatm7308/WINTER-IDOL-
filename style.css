@@ -376,7 +376,7 @@ h4 i{
 .bigcontainer{
     width: 100%;
     height: 100%;
-    background: #d0e0ec;
+    background: var(--fav);
     /* text-align: center; */
     display: none;
 
@@ -448,6 +448,8 @@ h4 i{
    position: absolute;
    left: 450px;
    top:300px;
+
+   position: absolute;
 }
 
 .audiocontainer .cd{
@@ -462,6 +464,10 @@ h4 i{
     background-color: #000;
     border-radius: 50%;
 
+    position: absolute;
+    left: 10px;
+    top: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -470,8 +476,60 @@ h4 i{
 .cicle .smallcicle{
     width: 70px;
     height: 70px;
-    background-color: #fff;
+    background-color: #dfa060;
     border-radius: 50%;
+}
+
+.seccicle{
+    width: 70px;
+    height: 70px;
+    background-color: rgb(26, 25, 25);
+    border-radius: 50%;
+
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.stick{
+    width: 10px;
+    height: 150px;
+    background-color: silver;
+
+    position: relative;
+
+    position: absolute;
+    left: 50%;
+    top: 25px;
+
+
+
+    transform: translate(-50%) ;
+
+    transition: all 1s;
+
+
+
+
+}
+
+ .tmorg{
+   transform: rotate(40deg);
+    transform-origin: left 0;
+
+}
+
+.smallest{
+    width: 15px;
+    height: 40px;
+    background-color: rgb(41, 39, 39);
+    box-shadow: 2px 2px 5px gray;
+    
+    position: absolute;
+    left: -30%;
+    bottom: -30px;
+  
+
 }
 /* End Audio Part  */
 
