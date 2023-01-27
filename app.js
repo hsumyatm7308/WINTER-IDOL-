@@ -93,6 +93,8 @@ prevang.addEventListener('click',function(){
 
 //  Audio Part 
 const getaudio = document.getElementById('audio');
+const songname = document.getElementById('songname');
+
 
 const getprogresscontainer = document.getElementById('progresscontainer');
 const getprogress = document.getElementById('progress');
@@ -106,9 +108,16 @@ const shufflebtn = document.getElementById('shuffle');
 const getstick = document.querySelector('.stick');
 const getsmallcicle = document.querySelector('.smallcicle');
 
+
 var audioes = ['youmakemesmile','littlestar','bymyside','christmastree','sunsetswithyou','myonlyone'];
+var songtitles = ['You Make <br/> Me Smile','Little Start','By My Side','Christmas Tree','Sunsets With You','My Only One'];
 
 let cursongidx = 0;
+let curtitleidx = 0;
+
+
+
+
 
 function loading() {
     getaudio.src = `./fav/${audioes[cursongidx]}.mp3`;
@@ -116,35 +125,117 @@ function loading() {
 
 function prevsongs(){
 
+    cursongidx--;
+    curtitleidx--;
     if(cursongidx < 0){
         cursongidx = audioes.length-1;
+        curtitleidx = audioes.length-1;
         
     }; 
-    getaudio.src = `./fav/${audioes[cursongidx--]}.mp3`;
-    playpausesongs()
+    getaudio.src = `./fav/${audioes[cursongidx]}.mp3`;
+    playpausesongs();
+
+    songname.innerHTML = songtitles[curtitleidx];
+
+
 }
 
 function nextsongs(){
-    console.log(cursongidx++);
+    cursongidx++;
+    curtitleidx++;
     console.log(audioes.length-1)
     if(cursongidx > audioes.length-1){
-        cursongidx = 0
+        cursongidx = 0;
+        curtitleidx = 0;
     }
     getaudio.src = `./fav/${audioes[cursongidx]}.mp3`;  
     playpausesongs();
+
+    songname.innerHTML = songtitles[curtitleidx];
+    
+
+   
 }
+
+
+
+function updateprogress(){
+    var currenttime = getaudio.currentTime;
+    var duration = getaudio.duration;
+    // console.log(currenttime)
+
+    if(currenttime === 0){
+        getprogress.style.width = "0%"
+        getprogress.style.overflow = "hidden"
+    }else{
+        let progressing = (currenttime/duration)*100;
+        getprogress.style.width = `${progressing}%`;
+        getprogress.style.overflow = "visible";
+
+    }
+
+
+   if(currenttime === duration){
+    // console.log(cursongidx + 1)
+
+    if(cursongidx < audioes.length -1 ){
+    //  cursongidx + 1;
+        getaudio.src = `./fav/${audioes[cursongidx+1]}.mp3`;  
+
+        playpausesongs()
+
+    }else if(cursongidx = audioes.length -1){
+        // cursongidx = 0;
+        getaudio.src = `./fav/${audioes[cursongidx=0]}.mp3`;  
+
+        playpausesongs()
+
+    }
+
+   }
+
+
+
+
+}
+
+
+function progressbar(e){
+    const progresswidth = getaudio.clientWidth;
+    const progressoffset = e.offsetX;
+    const progressduration = getaudio.duration;  
+    getaudio.currentTime = (progressoffset/progresswidth)*progressduration ;
+
+    getaudio.play();
+    playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-pause"></i></button>`;
+    getstick.classList.add('transformorg')
+    getsmallcicle.classList.add('turnningplay') ;  
+    
+ 
+}
+
+
+
+
+
+
+
+
 
 function playpausesongs(){
     if(getaudio.paused){
         getaudio.play();
         playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-pause"></i></button>`;
-
-       getstick.style.transform = "rotate(40deg)";
-       getsmallcicle.classList.add('turnningplay') ;             
+        getstick.classList.add('transformorg')
+        getsmallcicle.classList.add('turnningplay') ; 
+        
+        
+        
+      
     }else{
         getaudio.pause();
         playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-play"></i></button>`;
-        getstick.style.transform = "rotate(0deg)";
+        getstick.classList.remove('transformorg')
         getsmallcicle.classList.remove('turnningplay');
     }
 }
@@ -153,9 +244,16 @@ function playpausesongs(){
 
 
 
+
+
+
+
+getaudio.addEventListener('timeupdate',updateprogress)
+getprogresscontainer.addEventListener('click',progressbar)
 playbtn.addEventListener('click',playpausesongs);
 prevbtn.addEventListener('click',prevsongs);
 nextbtn.addEventListener('click',nextsongs);
+
 
 
 

@@ -128,12 +128,12 @@
                 <div class="cd">
                    <div class="cicle">
                         <div class="smallcicle ">
-                            <span class="songname">You Make <br> Me Smile</span>
+                            <span id="songname" class="songname">You Make <br> Me Smile</span>
                         </div>
                        
                         <div class="seccicle">
                             <div class="center">
-                                <div class="stick transformorg">
+                                <div class="stick ">
                                     <div class="smallest">
                                     </div>
                                  </div>
@@ -149,7 +149,7 @@
 
             <div class="audiocontrol">
 
-                <audio src="./fav/youmakemesmile.mp3" controls id="audio" class="audio"></audio>
+                <audio src="./fav/youmakemesmile.mp3" controls id="audio" class="audio" autoplay></audio>
 
 
                 
@@ -158,7 +158,9 @@
                 <div class="controls">
 
                     <div id="progresscontainer" class="progresscontainer">
-                        <div id="progress" class="progress"></div>
+                        <div id="progress" class="progress">
+                            <div class="prgrange"></div>
+                        </div>
                     </div>
 
                     <div class="ctn-btn">
@@ -171,6 +173,7 @@
                         <button id="shuffle" class="shuffle"><i class="fa-solid fa-shuffle"></i></button>
 
                     </div>
+
 
                 </div>
             </div>
