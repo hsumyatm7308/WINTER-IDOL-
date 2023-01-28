@@ -112,6 +112,11 @@ const getsmallcicle = document.querySelector('.smallcicle');
 var audioes = ['youmakemesmile','littlestar','bymyside','christmastree','sunsetswithyou','myonlyone'];
 var songtitles = ['You Make <br/> Me Smile','Little Start','By My Side','Christmas Tree','Sunsets With You','My Only One'];
 
+for(let i = 0; i < audioes.length; i++){
+    console.log(audioes[1].duration)
+}
+
+
 let cursongidx = 0;
 let curtitleidx = 0;
 
@@ -161,41 +166,33 @@ function nextsongs(){
 
 function updateprogress(){
     var currenttime = getaudio.currentTime;
-    var duration = getaudio.duration;
+    var adoduration = getaudio.duration;
+    var audiolength = audioes.length -1;
     // console.log(currenttime)
 
     if(currenttime === 0){
         getprogress.style.width = "0%"
         getprogress.style.overflow = "hidden"
     }else{
-        let progressing = (currenttime/duration)*100;
+        let progressing = (currenttime/adoduration)*100;
         getprogress.style.width = `${progressing}%`;
         getprogress.style.overflow = "visible";
 
     }
 
 
-   if(currenttime === duration){
+   if(currenttime === adoduration){
     // console.log(cursongidx + 1)
 
-    if(cursongidx < audioes.length -1 ){
-    //  cursongidx + 1;
-        getaudio.src = `./fav/${audioes[cursongidx+1]}.mp3`;  
+    if(cursongidx < audiolength ){
+        getaudio.src = `./fav/${audioes[cursongidx+1]}.mp3`;
+        cursongidx ++;
+        songname.innerHTML = songtitles[curtitleidx+1];
+        curtitleidx++;
 
-        playpausesongs()
-
-    }else if(cursongidx = audioes.length -1){
-        // cursongidx = 0;
-        getaudio.src = `./fav/${audioes[cursongidx=0]}.mp3`;  
-
-        playpausesongs()
-
+        playpausesongs();
     }
-
    }
-
-
-
 
 }
 
@@ -242,6 +239,16 @@ function playpausesongs(){
 
 
 
+
+// function looping(){
+//     else if(cursongidx >= audioes.length -1){
+//         // cursongidx = 0;
+//         getaudio.src = `./fav/${audioes[cursongidx=0]}.mp3`;  
+
+//         playpausesongs();
+
+//     }
+// }
 
 
 
