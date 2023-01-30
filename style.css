@@ -635,6 +635,15 @@ h4 i{
     left: 10px;
 }
 
+
+
+.repeat1::after{
+    content: '1';
+   font-size: 10px;
+   color: #dfa060;
+    
+}
+
 .shuffle{
     position: absolute;
     right: 10px;

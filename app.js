@@ -109,12 +109,10 @@ const getstick = document.querySelector('.stick');
 const getsmallcicle = document.querySelector('.smallcicle');
 
 
-var audioes = ['youmakemesmile','littlestar','bymyside','christmastree','sunsetswithyou','myonlyone'];
-var songtitles = ['You Make <br/> Me Smile','Little Start','By My Side','Christmas Tree','Sunsets With You','My Only One'];
+var audioes = ['youmakemesmile','littlestar','bymyside','christmastree','myonlyone','sunsetswithyou'];
+var songtitles = ['You Make <br/> Me Smile','Little Start','By My Side','Christmas Tree','My Only One','Sunsets With You'];
 
-for(let i = 0; i < audioes.length; i++){
-    console.log(audioes[1].duration)
-}
+
 
 
 let cursongidx = 0;
@@ -168,7 +166,6 @@ function updateprogress(){
     var currenttime = getaudio.currentTime;
     var adoduration = getaudio.duration;
     var audiolength = audioes.length -1;
-    // console.log(currenttime)
 
     if(currenttime === 0){
         getprogress.style.width = "0%"
@@ -192,8 +189,22 @@ function updateprogress(){
 
         playpausesongs();
     }
-   }
+   }else  if(currenttime >= 256){
 
+        playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-play"></i></button>`;
+        getstick.classList.remove('transformorg')
+        getsmallcicle.classList.remove('turnningplay') ;  
+//    console.log(Math.floor(getaudio.duration))
+
+   
+        if(repeatbtn.classList.contains('repeat1')){
+            if(getaudio.currentTime >= 256){
+               cursongidx = -1;
+               curtitleidx = -1;
+             }
+            }  
+
+   }
 }
 
 
@@ -210,14 +221,6 @@ function progressbar(e){
     
  
 }
-
-
-
-
-
-
-
-
 
 function playpausesongs(){
     if(getaudio.paused){
@@ -238,29 +241,20 @@ function playpausesongs(){
 }
 
 
-
-
-// function looping(){
-//     else if(cursongidx >= audioes.length -1){
-//         // cursongidx = 0;
-//         getaudio.src = `./fav/${audioes[cursongidx=0]}.mp3`;  
-
-//         playpausesongs();
-
-//     }
-// }
+function looping(){
+    repeatbtn.classList.toggle('repeat1');
+ }
+ 
 
 
 
 
-
-
-getaudio.addEventListener('timeupdate',updateprogress)
-getprogresscontainer.addEventListener('click',progressbar)
+getaudio.addEventListener('timeupdate',updateprogress);
+getprogresscontainer.addEventListener('click',progressbar);
 playbtn.addEventListener('click',playpausesongs);
 prevbtn.addEventListener('click',prevsongs);
 nextbtn.addEventListener('click',nextsongs);
-
+repeatbtn.addEventListener('click',looping);
 
 
 
