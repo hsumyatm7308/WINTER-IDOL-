@@ -27,10 +27,9 @@ var getaccotitle = document.querySelectorAll('.accodion-title');
 var accodion = document.querySelectorAll('.accodion');
 
 for(var x = 0; x < getaccotitle.length; x++){
-    // console.log(getaccotitle[x])
+    // console.log(getaccotitle[x]);
     getaccotitle[x].addEventListener('click',function(){
-
-        var getcontent = this.nextElementSibling;
+        var getcontent = this.nextElementSibling
 
         if(getcontent.style.height){
         getcontent.style.height = null;
@@ -52,20 +51,19 @@ const esc = document.querySelector('.esc');
 const prevang = document.getElementById('prevang');
 const nextang = document.getElementById('nextang'); 
 
-let curidx = 1;
+let curidx = 1
 
 for(var x = 0; x < getimg.length ; x++){
-    console.log(x)
+    // console.log(x);
     getimg[x].addEventListener('click',function(){
         shown(this);
-    })
+    });
 
    
     esc.addEventListener('click',function(){
         bigcontainer.style.display = "none";
-    })
-  
-}
+    });
+};
 
 function shown(e){
     bigcontainer.style.display = 'block';
@@ -77,7 +75,7 @@ function shown(e){
     }else if(curidx < 0){
         curidx--;
         curidx = getimg.length-1
-    }
+    };
 }
 
 prevang.addEventListener('click',function(){
@@ -103,7 +101,7 @@ const repeatbtn = document.getElementById('repeat');
 const prevbtn = document.getElementById('prev');
 const playbtn = document.getElementById('play');
 const nextbtn = document.getElementById('next');
-const shufflebtn = document.getElementById('shuffle');
+const timestamp = document.getElementById('timestamp');
 
 const getstick = document.querySelector('.stick');
 const getsmallcicle = document.querySelector('.smallcicle');
@@ -205,6 +203,15 @@ function updateprogress(){
             }  
 
    }
+
+    let min = Math.floor(currenttime/60)
+    let sec = Math.floor(currenttime%60)
+
+    const mins = min.toString().padStart(2,'0');
+    const secs = sec.toString().padStart(2,'0');
+
+    timestamp.innerHTML = `${mins}:${secs}`;
+    
 }
 
 
