@@ -139,7 +139,20 @@ h1{
     top: 10px;
     overflow: hidden;
 
+    animation: firstsquarecontainerani 1.5s linear;
 
+}
+
+@keyframes firstsquarecontainerani {
+    from{
+        transform: translateY(20%);
+        opacity: 0;
+    }
+
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .toletter{
@@ -268,6 +281,26 @@ h1{
     position: absolute;
     right: 310px;
     top: 80px;
+
+
+    animation: googleformani 1.5s;
+}
+
+@keyframes googleformani{
+    from{
+     transform: translate(100%);
+     opacity: 0;
+    }
+
+    to{
+     transform: translate(0) scale(.8);
+     opacity: 1;
+     
+    }
+}
+
+.googleform:hover{
+    box-shadow: 3px 3px 15px gray;
 }
 
 .googleform span{
@@ -275,6 +308,8 @@ h1{
     font-size: 30px;
     margin-right: 10px;
 }
+
+
 
 .forminbox{
     width: 400px;
@@ -565,6 +600,7 @@ h4 i{
 }
 /* End Gallery  */
 
+
 /* Start Audio Part  */
 .audiocontainer{
    width: 300px;
@@ -574,7 +610,25 @@ h4 i{
    position: absolute;
    left: 400px;
    top:400px;
+
+   animation: audioani 1.5s linear;
 }
+
+
+
+@keyframes audioani{
+    from{
+     transform: translateZ(10%);
+     opacity: 0;
+    }
+
+    to{
+     transform: translateZ(0);
+     opacity: 1;
+    }
+}
+
+
 
 .audiocontainer .cd{
     width: 300px;
@@ -583,6 +637,40 @@ h4 i{
     border-radius: 10px;
 
 }
+
+.audiocontainer:hover .cd{
+    opacity: .9;
+}
+
+
+.notes{
+    position: absolute;
+    left: 450px;
+    top: 400px;
+
+    z-index: 100;
+
+
+
+    transition: all 2s;
+
+    animation: notesani 2.5s linear infinite;
+}
+
+
+@keyframes notesani{
+    from{
+      transform: rotate(0);
+    }
+
+    to{
+     transform: rotate(15deg) translateY(-300%);
+     font-size: 20px;
+     opacity: 0;
+    }
+}
+
+
 
 .cd .cicle{
     width: 200px;
@@ -839,7 +927,9 @@ h4 i{
 }
 
 
-
+.lastsquare:hover img{
+    opacity: .9;
+}
 
 
 
