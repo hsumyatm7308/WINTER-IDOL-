@@ -153,12 +153,7 @@ function nextsongs(){
     playpausesongs();
 
     songname.innerHTML = songtitles[curtitleidx];
-    
-
-   
 }
-
-
 
 function updateprogress(){
     var currenttime = getaudio.currentTime;
