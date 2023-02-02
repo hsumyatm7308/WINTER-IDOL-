@@ -90,6 +90,8 @@ prevang.addEventListener('click',function(){
  
 
 //  Audio Part 
+
+
 const getaudio = document.getElementById('audio');
 const songname = document.getElementById('songname');
 
@@ -115,6 +117,8 @@ var songtitles = ['You Make <br/> Me Smile','Little Start','By My Side','Christm
 
 
 
+
+
 let cursongidx = 0;
 let curtitleidx = 0;
 
@@ -135,7 +139,7 @@ function prevsongs(){
         curtitleidx = audioes.length-1;
         
     }; 
-    getaudio.src = `./fav/${audioes[cursongidx]}.mp3`;
+    loading()
     playpausesongs();
 
     songname.innerHTML = songtitles[curtitleidx];
@@ -151,7 +155,7 @@ function nextsongs(){
         cursongidx = 0;
         curtitleidx = 0;
     }
-    getaudio.src = `./fav/${audioes[cursongidx]}.mp3`;  
+    loading()
     playpausesongs();
 
     songname.innerHTML = songtitles[curtitleidx];
@@ -213,6 +217,8 @@ function updateprogress(){
 
 
 
+  
+
     
 }
 
@@ -266,6 +272,61 @@ prevbtn.addEventListener('click',prevsongs);
 nextbtn.addEventListener('click',nextsongs);
 repeatbtn.addEventListener('click',looping);
 
+
+
+
+
+
+
+
+
+
+
+   
+    
+   
+const getsonglists = document.querySelectorAll('.songs');
+
+
+getsonglists.forEach(function(getsonglist,idx){
+
+   getsonglist.addEventListener('click',function(){
+     getplaysong(idx);
+    //  console.log(getsonglist)
+   });
+});
+
+
+function getplaysong(idx){
+
+    audioes.forEach(function(audio,adoidx){
+        // console.log(adoidx)
+
+        if(idx === adoidx){
+            // console.log('hi')
+            getaudio.src = `./fav/${audioes[adoidx]}.mp3`;
+
+
+        };
+    });
+}
+
+
+
+
+
+
+
+    
+
+
+    
+
+
+
+
+
+    
 
 
  
