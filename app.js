@@ -106,6 +106,8 @@ const timestamp = document.getElementById('timestamp');
 const getstick = document.querySelector('.stick');
 const getsmallcicle = document.querySelector('.smallcicle');
 
+const notes = document.getElementById('notes');
+
 
 var audioes = ['youmakemesmile','littlestar','bymyside','christmastree','myonlyone','sunsetswithyou'];
 var songtitles = ['You Make <br/> Me Smile','Little Start','By My Side','Christmas Tree','My Only One','Sunsets With You'];
@@ -185,8 +187,10 @@ function updateprogress(){
    }else  if(currenttime >= 256){
 
         playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-play"></i></button>`;
-        getstick.classList.remove('transformorg')
-        getsmallcicle.classList.remove('turnningplay') ;  
+        getstick.classList.remove('transformorg');
+        getsmallcicle.classList.remove('turnningplay') ; 
+        notes.classList.remove('notes')
+ 
 //    console.log(Math.floor(getaudio.duration))
 
    
@@ -206,6 +210,9 @@ function updateprogress(){
     const secs = sec.toString().padStart(2,'0');
 
     timestamp.innerHTML = `${mins}:${secs}`;
+
+
+
     
 }
 
@@ -220,7 +227,8 @@ function progressbar(e){
     playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-pause"></i></button>`;
     getstick.classList.add('transformorg')
     getsmallcicle.classList.add('turnningplay') ;  
-    
+    notes.classList.add('notes')
+
  
 }
 
@@ -230,15 +238,15 @@ function playpausesongs(){
         playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-pause"></i></button>`;
         getstick.classList.add('transformorg')
         getsmallcicle.classList.add('turnningplay') ; 
-        
+        notes.classList.add('notes')
+
         
         
       
     }else{
         getaudio.pause();
         playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-play"></i></button>`;
-        getstick.classList.remove('transformorg')
-        getsmallcicle.classList.remove('turnningplay');
+
     }
 }
 

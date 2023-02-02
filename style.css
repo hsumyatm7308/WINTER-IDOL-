@@ -254,6 +254,8 @@ h1{
    
 }
 
+/* End First Square  */
+
 
 .secsquarecontainer{
     width: 460px;
@@ -263,8 +265,23 @@ h1{
     position: absolute;
     left: 780px;
     bottom: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.postcard{
+    width: 250px;
+    height: 150px;
+    background-color: #d0e0ec;
+    margin-top: 20px;
+    margin-left: 0px;
+}
+
+.secsquarecontainer img{
+    /* transform: rotate(35deg); */
+}
 
 /* End Second Square */
 
@@ -642,29 +659,40 @@ h4 i{
     opacity: .9;
 }
 
+.notes i,.notes img{
+    transition: all 2s;
 
-.notes{
+    animation: notesani 3.5s linear infinite;
+
+}
+
+
+.notes i{
     position: absolute;
-    left: 450px;
+    left: 500px;
     top: 400px;
 
     z-index: 100;
 
-
-
-    transition: all 2s;
-
-    animation: notesani 2.5s linear infinite;
 }
 
+.notes img{
+    position: absolute;
+    left: 580px;
+    top: 420px;
+    z-index: -3;
+    animation-delay: 2s;
+    opacity: 0;
+}
 
 @keyframes notesani{
     from{
       transform: rotate(0);
+      opacity: 1;
     }
 
     to{
-     transform: rotate(15deg) translateY(-300%);
+     transform: rotate(30deg) translateY(-600%);
      font-size: 20px;
      opacity: 0;
     }
@@ -901,6 +929,19 @@ h4 i{
     position: absolute;
     right: 10px;
     top: 0;
+
+
+    animation: lastsquareani 1.5s linear;
+}
+
+@keyframes lastsquareani{
+    from{
+        transform: translateY(10%);
+    }
+
+    to{
+        transform: translateY(0);
+    }
 }
 
 .lastsquare p{
