@@ -144,7 +144,7 @@ function prevsongs(){
 
     songname.innerHTML = songtitles[curtitleidx];
 
-
+   
 }
 
 function nextsongs(){
@@ -187,6 +187,7 @@ function updateprogress(){
         curtitleidx++;
 
         playpausesongs();
+
     }
    }else  if(currenttime >= 256){
 
@@ -217,7 +218,6 @@ function updateprogress(){
 
 
 
-  
 
     
 }
@@ -305,8 +305,17 @@ function getplaysong(idx){
         if(idx === adoidx){
             // console.log('hi')
             getaudio.src = `./fav/${audioes[adoidx]}.mp3`;
+            songname.innerHTML = songtitles[adoidx];
+
+            playbtn.innerHTML = `<button type="button" id="play" ><i class="fa-solid fa-pause"></i></button>`;
+            getstick.classList.add('transformorg')
+            getsmallcicle.classList.add('turnningplay') ; 
+            notes.classList.add('notes');
 
 
+       
+    
+           
         };
     });
 }
